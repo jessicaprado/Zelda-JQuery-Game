@@ -1,0 +1,17 @@
+body {
+	background-image: url("../images/bg.jpg");
+	margin-top: 40px;
+}
+
+.character   {
+	background-color: red;
+	width: 200px;
+	height: 200px;
+}
+
+p {
+	font-family: 'Hind', sans-serif;
+	font-size: 22px;
+}
+
+
