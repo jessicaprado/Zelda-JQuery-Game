@@ -3,15 +3,56 @@ body {
 	margin-top: 40px;
 }
 
-.character   {
-	background-color: red;
+#gob{
+	position: relative;
+	float: left;
+	background-color: white;
 	width: 200px;
-	height: 200px;
+	height: 220px;
+	text-align: center;
+	margin-right: 5px;
+	border: green solid 3px;
 }
+	
+#buster {
+	position: relative;
+	float: left;
+	background-color: white;
+	width: 200px;
+	height: 220px;
+	text-align: center;
+	margin-right: 5px;
+	border: green solid 3px;
+}
+
+#george {
+	position: relative;
+	float: left;
+	background-color: white;
+	width: 200px;
+	height: 220px;
+	text-align: center;
+	margin-right: 5px;
+	border: green solid 3px;
+
+}
+
+#tobias {
+	position: relative;
+	float: left;
+	background-color: white;
+	width: 200px;
+	height: 220px;
+	text-align: center;	
+	margin-right: 5px;
+	border: green solid 3px;
+}
+
 
 p {
 	font-family: 'Hind', sans-serif;
 	font-size: 22px;
+	color: black;
 }
 
 
