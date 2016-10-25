@@ -1,9 +1,9 @@
 body {
-	background-image: url("../images/bg.jpg");
+	background-image: url("../images/background.jpg");
 	margin-top: 40px;
 }
 
-#gob{
+#link{
 	position: relative;
 	float: left;
 	background-color: white;
@@ -14,7 +14,7 @@ body {
 	border: green solid 3px;
 }
 	
-#buster {
+#zelda {
 	position: relative;
 	float: left;
 	background-color: white;
@@ -25,7 +25,7 @@ body {
 	border: green solid 3px;
 }
 
-#george {
+#ganon {
 	position: relative;
 	float: left;
 	background-color: white;
@@ -37,7 +37,7 @@ body {
 
 }
 
-#tobias {
+#ganondorf {
 	position: relative;
 	float: left;
 	background-color: white;
