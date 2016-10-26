@@ -27,99 +27,87 @@ $(document).ready(function(){
 	var characterSelected = false;
 	var enemySelected = false;	
 
+//function to select hero, and bring other divs to next section
+function chooseHero(){
+		if ($(".hero").hasClass(".link")) {
+		hero = $(hero).extend(link);		
+		}
+		else if ($(".hero").hasClass("zelda")) {
+		hero = $(hero).extend(zelda);		
+		}
+		else if ($(".hero").hasClass("ganondorf")) {
+		hero = $(hero).extend(ganondorf);		
+		}
+		else if ($(".hero").hasClass("ganon")) {
+		hero = $(hero).extend(ganon);		
+		};
+		console.log(hero);
+		$(".characters").appendTo("#enemies").addClass("enemies").css({"background-color" : "red", "border" : "solid black 2px"});	
+		characterSelected = true;				
+};
 
-$(".allCharacters").on("click", "button", function chooseHero(){
-//character options
-	if ($(this).hasClass("link")) {
-		$(".link").removeClass("characters").detach(".allCharacters").appendTo("#myCharacter").addClass("hero");
-		hero = $(hero).extend(link);
-		characterSelected = true;
-		}
-	else if 
-		($(this).hasClass("zelda")) {
-		$(".zelda").removeClass("characters").detach(".allCharacters").appendTo("#myCharacter").addClass("hero");
-		hero = $(hero).extend(zelda);
-		characterSelected = true;
-		}
-	else if 
-		($(this).hasClass("ganon")) {
-		$(".ganon").removeClass("characters").detach(".allCharacters").appendTo("#myCharacter").addClass("hero");
-		hero = $(hero).extend(ganon);
-		characterSelected = true;
-		}
-	else if 
-		($(this).hasClass("ganondorf")) {
-		$(".ganondorf").removeClass("characters").detach(".allCharacters").appendTo("#myCharacter").addClass("hero");
-		hero = $(hero).extend(ganondorf);
-		characterSelected = true;
-		}
-//take the other non-selected characters, moves them to an enemy div and changes colors to red
-	$("#myCharacter").siblings().appendTo("#enemies").addClass("enemies")	
-	$(".characters").css({"background-color" : "red", "border" : "solid black 2px"});	
-		
-}); //chooseHero function
-
-//Choosing enemy.
-$(".enemies").on("click", "button", function chooseEnemy() {
-		if ($(this).hasClass("link")) {
-		$(".link").detach().appendTo("#defender").removeClass("characters").addClass("villian");
-		$(".characters").css("pointer-events", "none");
+//function to select enemy
+function chooseEnemy () {
+	if ($(".villian").hasClass("link")) {
 		enemy = $(enemy).extend(link);
 		}
-		else if ($(this).hasClass("zelda")) {
-		$(".zelda").detach().appendTo("#defender").removeClass("characters").addClass("villian");
-		$(".characters").css("pointer-events", "none");
+	else if ($(".villian").hasClass("zelda")) {		
 		enemy = $(enemy).extend(zelda);
 		}
-		else if ($(this).hasClass("ganon")) {
-		$(".ganon").detach().appendTo("#defender").removeClass("characters").addClass("villian");
-		$(".characters").css("pointer-events", "none");
+	else if ($(".villian").hasClass("ganon")) {	
 		enemy = $(enemy).extend(ganon);
 		}
-		else if ($(this).hasClass("ganondorf")) {
-		$(".ganondorf").detach().appendTo("#defender").removeClass("characters").addClass("villian");
-		$(".characters").css("pointer-events", "none");
-		enemy = $(enemy).extend(ganondorf);
+	else if ($(".villian").hasClass("ganondorf")) {	
+		enemy = $(enemy).extend(ganondorf);		
+		};	
+enemySelected = true;		
+$(".characters").css("pointer-events", "none");
+console.log(enemy);
+	};
 
-		}
-		enemySelected = true;
-		});//chooseEnemy function
-
-//checks to see if user has selected their character
+// Game begins
 $(".choices").on("click", function() {
-	if (characterSelected = false) {
-		chooseHero();	
-		} else if (characterSelected = true){
+	if (characterSelected == false) {
+		$(this).removeClass("characters").detach(".allCharacters").appendTo("#myCharacter").addClass("hero");
+		chooseHero();		
+	} else {
+		$(this).detach().appendTo("#defender").removeClass("characters").addClass("villian");
 		chooseEnemy();
 	}
-});
+
+	});
 	
 
 //activating the attack button and begining the battle.
 $("#attack").on("click", function (){
-	if((characterSelected = true) && (enemySelected = true)) {
-		console.log(hero.power);
-		console.log(enemy.power);
-	}}); //<- 98
-			
-		//number of clicks * 8
-		//$(".characters").css("pointer-events", "auto")
 
-
-
-
-
-
-
-		
-
-
-
-			
-
-
+if((characterSelected = true) && (enemySelected = true)) {
+	var heroPower = [8, 16, 24, 32, 40, 48, 56, 64, 72, 80]
+	var heroStatus = ((hero.health) -= (enemy.power));
+	
+		for(i =0; i<heroPower; i++) {
+			var enemyStatus = ((enemy.health) -=(heroPower))
+			console.log(enemyStatus);
+		}
+	
+	if (heroStatus <= 0) {
+		console.log("you lose");
+	}
 
 	
+
+		
+		console.log(heroStatus);
+	
+		
+	}}); //<- 98
+			
+		
+
+			//}
+		//number of clicks * 8
+		//$(".characters").css("pointer-events", "auto")
+		
 
 	
 //});	
