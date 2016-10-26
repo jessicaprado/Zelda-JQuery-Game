@@ -21,11 +21,22 @@ $(document).ready(function(){
 		health: 180,
 		power: 25		
 	};
-
+	var count = 0
 	var hero = {};
 	var enemy = {};
 	var characterSelected = false;
-	var enemySelected = false;	
+	var enemySelected = false;
+	var heroStatus = "";
+	var enemyStatus = "";
+
+function reset(){
+	$(".choices").css({"pointer-events": "auto"});
+	$(".enemies").appendTo(".allCharacters").addClass("characters").css({"background-color" : "white", "border" : "solid green 3px"});;
+	$(".hero").appendTo(".allCharacters").addClass("characters");
+	$("button").removeClass("enemies hero villian");
+	$(".characters").children(':last').detach("heroHealth");
+
+};	
 
 //function to select hero, and bring other divs to next section
 function chooseHero(){
@@ -61,52 +72,64 @@ function chooseEnemy () {
 		enemy = $(enemy).extend(ganondorf);		
 		};	
 enemySelected = true;		
-$(".characters").css("pointer-events", "none");
-console.log(enemy);
 	};
 
 // Game begins
 $(".choices").on("click", function() {
 	if (characterSelected == false) {
 		$(this).removeClass("characters").detach(".allCharacters").appendTo("#myCharacter").addClass("hero");
+		$(this).children(':last').addClass("heroHealth");
 		chooseHero();		
-	} else {
+	} else {		
 		$(this).detach().appendTo("#defender").removeClass("characters").addClass("villian");
+		$(this).children(':last').addClass("villianHealth");
 		chooseEnemy();
+		$(".characters").css("pointer-events", "none");
 	}
-
 	});
-	
 
 //activating the attack button and begining the battle.
 $("#attack").on("click", function (){
-
-if((characterSelected = true) && (enemySelected = true)) {
-	var heroPower = [8, 16, 24, 32, 40, 48, 56, 64, 72, 80]
-	var heroStatus = ((hero.health) -= (enemy.power));
+	if((characterSelected = true) && (enemySelected = true)) {
+		count++;
+		heroPower = (8*(count));
+		heroStatus = ((hero.health) -= (enemy.power));
+		enemyStatus = ((enemy.health) -=(heroPower));
+		console.log(enemy);
 	
-		for(i =0; i<heroPower; i++) {
-			var enemyStatus = ((enemy.health) -=(heroPower))
-			console.log(enemyStatus);
-		}
+	$(".herohealth").html(heroStatus);
+	$(".villianHealth").html(enemyStatus);
+	$("#status").html("<p>You attacked " + enemy.name + "for " + heroPower + " damage.<br>" + enemy.name + " attacked you back for " + enemy.power + " damage<p>");
 	
 	if (heroStatus <= 0) {
-		console.log("you lose");
+		$("#status").html("<p>You've been defeated! Game Over!<p>");
+		$("<button>reset</button>").appendTo("#status").addClass("reset");
+		characterSelected = false;
+		$(".choices").css("pointer-events", "none");
+		$("#attack").css("pointer-events", "none");		
+		$(".reset").on("click", function() {
+			reset();
+		});
+
+	} else if (enemyStatus <=0) { 
+		
+		$(".villian").hide().removeClass("#defender").addClass("dead");
+		$(".characters").css({"pointer-events": "auto"});
+		$(enemy).remove();
+		(enemySelected == false);
+
+		chooseEnemy();
+		$("#status").html("<p>Choose another enemy to fight.<p>");
+			if((enemyStatus <=0) && (enemy == {})) {
+				$("#status").html("<p>You won!<p>");
+				$("<button>reset</button>").appendTo("#status");		
+			};
 	}
-
-	
-
-		
-		console.log(heroStatus);
-	
-		
 	}}); //<- 98
 			
 		
 
-			//}
-		//number of clicks * 8
-		//$(".characters").css("pointer-events", "auto")
+
 		
 
 	
