@@ -5,61 +5,32 @@
 </head>
 <body>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Hind:700" rel="stylesheet">
+
+	<section class="gameboard">
+		<div class="allCharacters">
+			<h1>Select your hero</h1>
+		</div>
+
+		<div id="battlefield">
+			<div id ="myCharacter"></div>
+			<div id = "enemies"></div>
+		</div>
+
+		<div id="attack"></div>
+
+		<div class="stats">
+			<div id="heroStatus"></div>
+			<div id="enemyStatus"></div>
+			<div id="results"></div>
+		</div>
+
+	</section>
+
 	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="assets/javascript/objects.js"></script>
+	<script type="text/javascript" src="assets/javascript/functions.js"></script>
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
-	
-
-<div class="col-md-12" id="background">
-
-	<div class="col-md-12 allCharacters">
-
-		<button id = "link" class="link characters choices" value = 120>
-			<p>Link</p>
-			<img src="assets/images/link.png">
-			<p class="health">120</p>
-		</button>
-		
-		<button id = "zelda" class="zelda characters choices" value = 100>
-			<p>Zelda</p>
-			<img src="assets/images/zelda.png">
-			<p class="health">100</p>
-		</button>
-		
-		<button id = "ganon" class="ganon characters choices" value = 180>
-			<p>Ganon</p>
-			<img src="assets/images/ganon.jpg">
-			<p class="health" >180</p>
-		</button>
-		
-		<button id = "ganondorf" class=" ganondorf characters choices" value = 150>
-			<p>Ganondorf</p>
-			<img src="assets/images/ganondorf.png">
-			<p class="health">150</p>
-		</button>
-
-	</div>
-
-	<div class="col-md-12" id = "myCharacter">		
-		<p>Your Character</p>		
-	</div>
-
-	<div class="col-md-12" id = "enemies">		
-		<p>Enemies Available to Attack</p>		
-	</div>
-
-	<div class="col-md-12" id="fightselection">
-		<p>Fight Selection</p> 
-		<button id="attack">Attack</button>
-	<div class="col-md-12" id = "defender">		
-			<p>Defender</p>		
-	</div>
-	<div class="col-md-12" id = "status">		
-				
-	</div>
-</div>
 
 </body>
 </html>
