@@ -70,6 +70,7 @@ function resetGame() {
   selectedHero;
   selectedEnemy;
 
+  $('.character').removeClass('disable');
   $('.allCharacters button').empty();
   $('#myCharacter').empty();
   $('#enemies').empty();
