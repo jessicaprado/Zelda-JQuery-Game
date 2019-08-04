@@ -1,3 +1,5 @@
+## Full game can be viewed here: https://jessicaprado.github.io/Zelda-JQuery-Game/
+
 # Zelda and JQuery
 
 #### A simple project created in 2017 to show and learn JQuery concepts, such as constructors, functions and on click events.
